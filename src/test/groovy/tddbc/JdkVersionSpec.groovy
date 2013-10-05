@@ -35,19 +35,20 @@ class JdkVersionSpec extends Specification{
         JdkVersion.parse(version)
 
         then:
-        def e = thrown(exception)
-        assert e.class == exception
+        def e = thrown(IllegalArgumentException)
+        assert e.class == IllegalArgumentException
 
         where:
-        version      | exception
-        "JDK7u40x"   | IllegalArgumentException
-        "XJDK7u40"   | IllegalArgumentException
-        "jdk7u40"    | IllegalArgumentException
-        "JDKX7u40"   | IllegalArgumentException
-        "JDK07u40"   | IllegalArgumentException
-        "JDK7u040"   | IllegalArgumentException
-        "JDK740"     | IllegalArgumentException
-        "JDK7u"      | IllegalArgumentException
-        "7u40"       | IllegalArgumentException
+        version << [
+                "JDK7u40x",
+                "XJDK7u40",
+                "jdk7u40",
+                "JDKX7u40",
+                "JDK07u40",
+                "JDK7u040",
+                "JDK740",
+                "JDK7u",
+                "7u40",
+        ]
     }
 }
