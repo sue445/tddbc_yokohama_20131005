@@ -2,6 +2,6 @@ package tddbc
 
 class JdkVersion {
     boolean isValid(String version) {
-        return true;
+        version == "JDK7u40"
     }
 }
