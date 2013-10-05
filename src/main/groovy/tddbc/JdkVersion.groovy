@@ -13,18 +13,25 @@ class JdkVersion {
         if(!m) {
             throw new IllegalArgumentException()
         }
-        def strFamilyNumber = m[0][1]
-        if (strFamilyNumber[0] == "0") {
-            throw new IllegalArgumentException()
-        }
-        def strUpdateNumber = m[0][2]
-        if (strUpdateNumber[0] == "0") {
-            throw new IllegalArgumentException()
-        }
+        String strFamilyNumber = m[0][1]
+        String strUpdateNumber = m[0][2]
+
+        assertNotStartsWithZero(strFamilyNumber)
+        assertNotStartsWithZero(strUpdateNumber)
 
         JdkVersion jdkVersion = new JdkVersion()
         jdkVersion.familyNumber = strFamilyNumber as int
         jdkVersion.updateNumber = strUpdateNumber as int
         jdkVersion
+    }
+
+    /**
+     * 0で開始している数字だったらエラーにする
+     * @param str
+     */
+    private void assertNotStartsWithZero(String str) {
+        if (str.startsWith("0")) {
+            throw new IllegalArgumentException()
+        }
     }
 }
