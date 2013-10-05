@@ -4,8 +4,12 @@ class JdkVersion {
     int familyNumber
     int updateNumber
 
-    boolean isValid(String version) {
-        version == "JDK7u40"
+    static boolean isValid(String version) {
+        try {
+            parse(version)
+        }catch(e) {
+            false
+        }
     }
 
     static JdkVersion parse(String version) {

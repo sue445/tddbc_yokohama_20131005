@@ -4,13 +4,9 @@ import spock.lang.Ignore
 import spock.lang.Specification
 
 class JdkVersionSpec extends Specification{
-    @Ignore
     def "バージョンをチェックする"(){
-        given:
-        JdkVersion sut = new JdkVersion()
-
         expect:
-        sut.isValid(version) == expected
+        JdkVersion.isValid(version) == expected
 
         where:
         version      | expected
