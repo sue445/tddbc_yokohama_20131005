@@ -20,4 +20,18 @@ class JdkVersionSpec extends Specification{
 //        "JDK7u40x"   | false
 
     }
+
+    def "parseのテスト"(){
+        given:
+        JdkVersion sut = new JdkVersion()
+
+        expect:
+        sut.parse(version).familyNumber == expectedFamilyNumber
+        sut.parse(version).updateNumber == expectedUpdateNumber
+
+        where:
+        version      | expectedFamilyNumber | expectedUpdateNumber
+        "JDK7u40"    | 7                    | 40
+
+    }
 }
