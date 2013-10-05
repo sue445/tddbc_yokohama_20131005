@@ -1,6 +1,9 @@
 package tddbc
 
-class JdkVersion {
+import groovy.transform.ToString
+
+@ToString
+class JdkVersion implements Comparable{
     int familyNumber
     int updateNumber
 
@@ -36,6 +39,19 @@ class JdkVersion {
     private static void assertNotStartsWithZero(String str) {
         if (str.startsWith("0")) {
             throw new IllegalArgumentException()
+        }
+    }
+
+    public int compareTo(Object other){
+        return compareTo((JdkVersion)other)
+    }
+
+    public int compareTo(JdkVersion other){
+        def diffFamilyNumber = this.familyNumber - other.familyNumber
+        if (diffFamilyNumber == 0) {
+            return this.updateNumber - other.updateNumber
+        } else {
+            return diffFamilyNumber
         }
     }
 }
