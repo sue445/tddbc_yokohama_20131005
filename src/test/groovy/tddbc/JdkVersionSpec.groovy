@@ -4,9 +4,11 @@ import spock.lang.Specification
 
 class JdkVersionSpec extends Specification{
     def "バージョンをチェックする"(){
+        given:
+        JdkVersion sut = new JdkVersion()
 
         expect:
-        JdkVersion.isValid(version) == expected
+        sut.isValid(version) == expected
 
         where:
         version      | expected
