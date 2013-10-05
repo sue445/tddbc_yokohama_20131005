@@ -46,5 +46,8 @@ class JdkVersionSpec extends Specification{
         "JDKX7u40"   | IllegalArgumentException
         "JDK07u40"   | IllegalArgumentException
         "JDK7u040"   | IllegalArgumentException
+        "JDK740"     | IllegalArgumentException
+        "JDK7u"      | IllegalArgumentException
+        "7u40"       | IllegalArgumentException
     }
 }
