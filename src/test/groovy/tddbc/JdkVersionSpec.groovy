@@ -21,7 +21,7 @@ class JdkVersionSpec extends Specification{
 
     }
 
-    def "parseのテスト"(){
+    def "parseのテスト（正常系）"(){
         given:
         JdkVersion sut = new JdkVersion()
 
@@ -32,6 +32,29 @@ class JdkVersionSpec extends Specification{
         where:
         version      | expectedFamilyNumber | expectedUpdateNumber
         "JDK7u40"    | 7                    | 40
+        "JDK7u41"    | 7                    | 41
 
+    }
+
+    def "parseのテスト（異常系）"(){
+        given:
+        JdkVersion sut = new JdkVersion()
+
+        when:
+        println(version)
+        sut.parse(version)
+
+        then:
+        def e = thrown(exception)
+        assert e.class == exception
+
+        where:
+        version      | exception
+        "JDK7u40x"   | IllegalArgumentException
+        "XJDK7u40"   | IllegalArgumentException
+        "jdk7u40"    | IllegalArgumentException
+        "JDKX7u40"   | IllegalArgumentException
+        "JDK07u40"   | IllegalArgumentException
+        "JDK7u040"   | IllegalArgumentException
     }
 }
