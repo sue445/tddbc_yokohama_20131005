@@ -22,12 +22,9 @@ class JdkVersionSpec extends Specification{
     }
 
     def "parseのテスト（正常系）"(){
-        given:
-        JdkVersion sut = new JdkVersion()
-
         expect:
-        sut.parse(version).familyNumber == expectedFamilyNumber
-        sut.parse(version).updateNumber == expectedUpdateNumber
+        JdkVersion.parse(version).familyNumber == expectedFamilyNumber
+        JdkVersion.parse(version).updateNumber == expectedUpdateNumber
 
         where:
         version      | expectedFamilyNumber | expectedUpdateNumber
@@ -38,12 +35,8 @@ class JdkVersionSpec extends Specification{
     }
 
     def "parseのテスト（異常系）"(){
-        given:
-        JdkVersion sut = new JdkVersion()
-
         when:
-        println(version)
-        sut.parse(version)
+        JdkVersion.parse(version)
 
         then:
         def e = thrown(exception)

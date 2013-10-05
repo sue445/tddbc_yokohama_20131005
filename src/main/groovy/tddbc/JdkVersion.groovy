@@ -8,7 +8,7 @@ class JdkVersion {
         version == "JDK7u40"
     }
 
-    JdkVersion parse(String version) {
+    static JdkVersion parse(String version) {
         def m = version =~ /^JDK([0-9]+)u([0-9]+)$/
         if(!m) {
             throw new IllegalArgumentException()
@@ -29,7 +29,7 @@ class JdkVersion {
      * 0で開始している数字だったらエラーにする
      * @param str
      */
-    private void assertNotStartsWithZero(String str) {
+    private static void assertNotStartsWithZero(String str) {
         if (str.startsWith("0")) {
             throw new IllegalArgumentException()
         }
