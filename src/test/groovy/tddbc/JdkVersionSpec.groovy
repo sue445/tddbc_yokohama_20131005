@@ -3,7 +3,7 @@ package tddbc
 import spock.lang.Specification
 
 class JdkVersionSpec extends Specification{
-    def "バージョンのチェック"(){
+    def "check version"(){
 
         expect:
         JdkVersion.isValid(version) == expected
