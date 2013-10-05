@@ -1,4 +1,4 @@
-TDDBC for Groovy with Spock
+TDDBC for Groovy with Spock [![Build Status](https://travis-ci.org/sue445/tddbc_yokohama_20131005.png?branch=master)](https://travis-ci.org/sue445/tddbc_yokohama_20131005)
 ====================================
 
 これは、TDDBCのGroovy向けSpockプロジェクトです。
