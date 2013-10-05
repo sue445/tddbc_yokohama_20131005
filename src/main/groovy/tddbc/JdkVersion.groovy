@@ -9,7 +9,7 @@ class JdkVersion {
     }
 
     JdkVersion parse(String version) {
-        def m = version =~ /^JDK([0-9]{1})u([0-9]+)$/
+        def m = version =~ /^JDK([0-9]+)u([0-9]+)$/
         if(!m) {
             throw new IllegalArgumentException()
         }

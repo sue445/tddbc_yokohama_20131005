@@ -33,6 +33,7 @@ class JdkVersionSpec extends Specification{
         version      | expectedFamilyNumber | expectedUpdateNumber
         "JDK7u40"    | 7                    | 40
         "JDK7u41"    | 7                    | 41
+        "JDK10u41"   | 10                   | 41
 
     }
 
