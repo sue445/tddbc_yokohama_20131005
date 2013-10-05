@@ -11,8 +11,8 @@ class JdkVersionSpec extends Specification{
         where:
         version      | expected
         "JDK7u40"    | true
-        "hoge"       | false
-        "JDK7u40x"   | false
+//        "hoge"       | false
+//        "JDK7u40x"   | false
 
     }
 }
